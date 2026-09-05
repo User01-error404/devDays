@@ -27,6 +27,8 @@ export default [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
+      // Keep exported APIs self-documenting and safe for callers.
+      "@typescript-eslint/explicit-module-boundary-types": "error",
     },
   },
 
@@ -38,6 +40,11 @@ export default [
     files: ["**/*.ts"],
     languageOptions: {
       parser: tseslint.parser,
+    },
+    rules: {
+      quotes: ["error", "single", { avoidEscape: true }],
+      semi: ["error", "always"],
+      "comma-dangle": ["error", "always-multiline"],
     },
   },
 ];
